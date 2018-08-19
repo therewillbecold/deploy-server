@@ -4,9 +4,9 @@
   "description": "静态资源combo服务",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start entry.js",
-    "dev": "node entry.js",
-    "test": "node test.js"
+    "start": "NODE_ENV=dev pm2 start entry.js",
+    "dev": "NODE_ENV=dev node entry.js",
+    "test": "NODE_ENV=test node test.js"
   },
   "keywords": [
     "静态资源",
