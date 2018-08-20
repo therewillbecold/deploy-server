@@ -1,5 +1,5 @@
 {
-  "name": "assets-server",
+  "name": "deploy-server",
   "version": "1.0.0",
   "description": "静态资源combo服务",
   "main": "index.js",
