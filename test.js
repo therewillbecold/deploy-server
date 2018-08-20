@@ -1,22 +1,46 @@
 require('babel-register');
 
+let path = require('path')
 let Utils = require('./common/utils.js').default
 let git = require('./workflow/git').default
-let path = require('path')
 // require('./server/index.js')
-require('./index')
 
+const {
+    isPathExist,
+    log,
+    getRepoName
+} = Utils
 
-const isExist = Utils.isPathExist(path.resolve(__dirname, '../assets'))
-console.log('isExist:', isExist)
+log.info('Utils测试 ===== Utils测试')
+
+const isExist = isPathExist(path.resolve(__dirname, '../assets'))
+log.debug('isExist:', isExist)
+
+// const testConf = {
+//     "root": "dist",
+//     "repository": "git@git.code.oa.com:data_pd/shield-1.0.git",
+//     "project": "shield"
+// }
 
 const testConf = {
-    "root": "dist",
-    "repository": "git@git.code.oa.com:data_pd/shield-1.0.git",
-    "project": "shield"
+    root: 'dist',
+    repository: 'git@github.com:xu3927/deloy-repo-test.git',
+    project: 'deploy-repo-test'
 }
-console.log('getRepoName:', Utils.getRepoName(testConf.repository))
+
+log.debug('getRepoName:', getRepoName(testConf.repository))
+
+log.info('git模块测试 ===== git模块测试')
+
 git(testConf)
+.then(res => {
+    log.debug('git模块测试成功:', res)
+})
+.catch(err => {
+    log.error('git模块测试-error:', err)
+})
+
+
 
 
 
