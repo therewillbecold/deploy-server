@@ -20,10 +20,11 @@ Method: post
 
 ```json
 {
-    "project": "shield",
-    "path": "dist",
-    "repository": "git@git.code.oa.com:data_pd/shield-1.0.git",
-    "version": "1.0.0"
+    "root": "dist", // 要发布的根目录
+    "repository": "git@git.code.oa.com:data_pd/shield-1.0.git", // git仓库路径
+    "tag": "publish/1.0.0", // git tag, 添加方式为 git tag publish/1.0.0
+    "env": "publish", // 部署的环境, 取值 publish, test
+    "htmlPath": ["index/index.html", "product/index.html"] // 项目中的html文件, 路径从上面设置的root出发
 }
 ```
 
@@ -32,6 +33,6 @@ Method: post
 ```json
 {
     "status": 0,
-    "message": ""
+    "message": "部署成功"
 }
 ```

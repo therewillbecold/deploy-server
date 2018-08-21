@@ -4,9 +4,9 @@
   "description": "静态资源combo服务",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=dev pm2 start entry.js",
-    "dev": "NODE_ENV=dev node entry.js",
-    "test": "NODE_ENV=test node test.js"
+    "start": "cross-env NODE_ENV=dev pm2 start entry.js",
+    "dev": "cross-env NODE_ENV=dev node entry.js",
+    "test": "cross-env NODE_ENV=test node test.js"
   },
   "keywords": [
     "静态资源",
@@ -16,11 +16,13 @@
   "author": "zhichaoxu@tencent.com",
   "license": "ISC",
   "dependencies": {
-    "babel-register": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "cross-env": "^5.2.0",
     "cross-spawn": "^6.0.5",
     "execa": "^0.10.0",
     "fs-extra": "^7.0.0",
+    "is-admin": "^2.1.1",
     "koa": "^2.5.2",
     "koa-body-parser": "^1.1.2",
     "koa-compose": "^4.1.0",
