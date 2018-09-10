@@ -2,8 +2,11 @@ import Koa from "koa";
 import logger from 'koa-logger'
 import json from 'koa-json'
 import router from './middleware/router'
+import wsRouter from './middleware/ws-router'
 import bodyParser from 'koa-body-parser'
-const app = new Koa()
+const websockify = require('koa-websocket') // 建立websocket
+
+const app = websockify(new Koa());
 const port = 3000
 
 // http://127.0.0.1:3000/co??v/l/vue.js,v/l/zepto.js
@@ -22,4 +25,5 @@ app.use(logger())
 app.use(json())
 app.use(bodyParser())
 app.use(router)
+app.ws.use(wsRouter)
 app.listen(port, res => console.log('服务启动, 监听' + port));
